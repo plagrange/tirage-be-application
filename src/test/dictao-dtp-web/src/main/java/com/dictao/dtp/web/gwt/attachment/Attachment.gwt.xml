@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<inherits name="com.google.gwt.user.User" />
+    <inherits name="com.dictao.dtp.web.gwt.common.Common" />
+
+    <!-- Compile both `DEBUG` and `ERROR` log levels, with level selection via -->
+    <!-- a `gwt:property` meta tag in your HTML page, e.g.  -->
+    <!--    <head> <title>....</title> -->
+    <!-- <meta name="gwt:property" content="log_level=DEBUG"> </head> -->
+    <inherits name="com.allen_sauer.gwt.log.gwt-log-ERROR" />
+    <extend-property name="log_level" values="DEBUG" />
+
+    <!-- In gwt-log-3.0.3 or later -->
+    <inherits name="com.allen_sauer.gwt.log.gwt-log-RemoteLogger" />
+
+    <!-- Specify supported languages-->
+    <extend-property name="locale" values="fr,en"/>
+    <set-property-fallback name="locale" value="fr"/>
+    <!--<extend-property name="locale" values="en"/>-->
+
+    <!-- Loggers -->
+    <set-property name="log_GWTLogger" value="ENABLED" />
+    <set-property name="log_SystemLogger" value="DISABLED" />
+    <set-property name="log_ConsoleLogger" value="DISABLED" />
+    <set-property name="log_FirebugLogger" value="DISABLED" />
+    <set-property name="log_DivLogger" value="DISABLED" />
+    <set-property name="log_WindowLogger" value="DISABLED" />
+
+	<source path="client"/>
+    <source path="shared"/>
+</module>

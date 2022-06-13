@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container, 
+	see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<listener>
+		<listener-class>com.reunion.tirage.servlet.init.Bootstrap</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>Reunion Web Application</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>io.swagger.jaxrs.json,io.swagger.jaxrs.listing,com.reunion.tirage</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>Reunion Web Application</servlet-name>
+		<url-pattern>/webapi/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Jersey2Config</servlet-name>
+		<servlet-class>io.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
+		<init-param>
+			<param-name>api.version</param-name>
+			<param-value>1.0.0</param-value>
+		</init-param>
+		<init-param>
+			<param-name>swagger.api.basepath</param-name>
+			<param-value>https://www.lagrangien.fr/tirage/webapi</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+
+	<resource-ref>
+		<description>Oracle DB Resource</description>
+		<res-ref-name>jdbc/REUNION</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://jakarta.apache.org/taglibs/datetime</taglib-uri>
+			<taglib-location>/WEB-INF/datetime.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://jakarta.apache.org/taglibs/core</taglib-uri>
+			<taglib-location>/WEB-INF/c.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+</web-app>

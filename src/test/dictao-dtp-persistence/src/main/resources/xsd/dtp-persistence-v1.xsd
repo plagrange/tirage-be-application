@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dictao.com/xsd/dtp/persistence/v1" targetNamespace="http://dictao.com/xsd/dtp/persistence/v1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" elementFormDefault="qualified" jaxb:version="2.0">
+
+    <element name="signatures">
+        <complexType>
+            <sequence>
+                <element name="entity" type="tns:Signature" minOccurs="0"/>
+                <element name="personal" type="tns:PersonalSignature" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="PersonalSignature">
+        <complexContent>
+            <extension base="tns:Signature">
+                <sequence>
+                    <element name="user" type="NCName" />
+                    <element name="signatureLabel" type="NCName" minOccurs="0"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="Signature">
+        <sequence>
+            <element name="visibleSignature" type="tns:VisibleSignature" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="VisibleSignature">
+        <sequence>
+            <element name="page" type="int"/>
+            <element name="x" type="int"/>
+            <element name="y" type="int"/>
+            <element name="width" type="int"/>
+            <element name="height" type="int"/>
+            <element name="layout" type="NCName"/>
+        </sequence>
+    </complexType>
+    
+    <element name="documentTypeList">
+        <complexType>
+            <sequence>
+                <element name="documentType" type="NCName" minOccurs="0" maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+    
+    <element name="uiInfo">
+        <complexType>
+            <sequence>
+                <element name="ui" type="NCName" />
+                <element name="label" type="tns:ShortDescription" minOccurs="0"/>
+                <element name="type" type="tns:ShortDescription" minOccurs="0"/>
+                <element name="consent" type="tns:Description" minOccurs="0"/>
+                <element name="termAndConditionsUrl" type="anyURI" minOccurs="0"/>
+                <element name="backUrl" type="tns:UrlType" minOccurs="0"/>
+                <element name="documentTypes" type="NCName" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>       
+        </complexType>
+    </element>
+    
+    <element name="personalInfo">
+        <complexType>
+            <sequence>
+                <element name="user" type="NCName"/>
+                <element name="title" minOccurs="0">
+                    <simpleType>
+                        <restriction base="string">
+                            <maxLength value="20"/>
+                        </restriction>
+                    </simpleType>
+                </element>
+                <element name="lastName" type="tns:ShortText" minOccurs="0"/>
+                <element name="firstName" type="tns:ShortText" minOccurs="0"/>
+                <element name="birthdate" type="date" minOccurs="0"/>
+                <element name="userDN" type="tns:UserDN" minOccurs="0"/>
+            </sequence>       
+            <attribute name="mainContractor" type="boolean" use="optional" default="false"/>
+        </complexType>
+    </element>
+    
+    <complexType name="UserDN">
+        <sequence>
+            <element name="countryName" type="string" minOccurs="0"/>
+            <element name="organizationName" type="string" minOccurs="0"/>
+            <element name="organizationalUnitName" type="string" minOccurs="0"/>
+            <element name="emailAddress" type="tns:EMailType" minOccurs="0"/>
+            <element name="commonName" type="tns:CommonNameType" minOccurs="1"/>
+            <element name="subjectAltName" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="PhoneNumberType">
+        <restriction base="string">
+            <pattern value="[0-9]{10}"/>
+        </restriction>
+    </simpleType>
+
+    <element name="authenticationInfo">
+        <complexType>
+            <sequence>
+                <element name="userId" type="string"/>
+                <element name="phoneNumber" type="tns:PhoneNumberType" minOccurs="0" />
+                <element name="securityLevel" type="int" minOccurs="0" />
+            </sequence>
+        </complexType>
+    </element>
+
+    <simpleType name="CommonNameType">
+        <restriction base="string">
+            <pattern value="[a-zA-Z0-9ÇçÀÂÄàâäÉÈÊËêéèëÖÔôöÚÛÜüùûÎÏîï\-'()\+,\-\./:=\? _@]+"/>
+        </restriction>
+    </simpleType>
+    
+   <simpleType name="UrlType">
+        <restriction base="anyURI">
+            <pattern value="(http(s)?:/)?/.*"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="EMailType">
+        <restriction base="string">
+            <pattern value="[a-zA-Z0-9\-_]+[a-zA-Z0-9\.\-_]*@[a-zA-Z0-9\-_]+\.[a-zA-Z\.\-_]{1,}[a-zA-Z\-_]+"/>
+        </restriction>
+    </simpleType>
+    
+    <simpleType name="ShortText">
+        <restriction base="string">
+            <maxLength value="50"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="ShortDescription">
+        <restriction base="string">
+            <maxLength value="100"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Description">
+        <restriction base="string">
+            <maxLength value="3000"/>
+        </restriction>
+    </simpleType>
+    
+</schema>

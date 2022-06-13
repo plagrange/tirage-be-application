@@ -1,0 +1,551 @@
+/* --------------------------------------------------------------
+   reset.css
+   * Resets default browser CSS.
+-------------------------------------------------------------- */
+html {
+  height: 100%;
+  margin:0;
+  padding:0;
+  border:0;
+}
+body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header,
+hgroup, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* This helps to make newer HTML5 elements behave like DIVs in older browers */
+article, aside, details, figcaption, figure, dialog,
+footer, header, hgroup, menu, nav, section {
+    display:block;
+}
+/* Line-height should always be unitless! */
+body {
+  line-height: 1.5;
+  background: white;
+}
+/* Tables still need 'cellspacing="0"' in the markup. */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+/* float:none prevents the span-x classes from breaking table-cell display */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  float:none !important;
+}
+table, th, td {
+  vertical-align: middle;
+}
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+blockquote, q { quotes: "" ""; }
+/* Remove annoying border on linked images. */
+a img { border: none; }
+/* Remember to define your own focus styles! */
+:focus { outline: 0; }
+/* End of reset */
+p{
+	padding: 1em 0 0 1em;
+}
+body{
+	text-align: center;
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+    font-size: 80%;
+    background: url(../images/body_bg.jpg) top left repeat-x ;
+}
+
+#mainContainer{
+	min-height: 100%;
+	width: 1050px;
+	overflow: hidden; 
+	margin-left: auto;
+	margin-right: auto;
+}
+.container{
+/* 	margin: 0 auto;
+	width: 1150px;
+	position: relative; */
+}
+
+.legal{
+    margin-left: 100px;
+    text-align: justify;
+    position: relative;
+	padding-top: 10px;
+}
+
+#header{
+	height: 95px;
+    background: url(../images/header-scenario4.png) center no-repeat ;
+    margin-top: 2px;
+}
+
+.logo{
+	/* background: url(../images/logo.png) center no-repeat; */
+	height: 70px;
+	width: 70px;
+	float:left;
+	margin: 10px 0 0 100px;
+}
+.titre{
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+	font-size: 300%;
+	font-weight: normal;
+    padding:15px 0px 0 0px;
+    color:#929191;
+}
+
+#footer{
+position : relative;
+    bottom: 0;
+	height: 60px;
+	background: url(../images/dictao-logo.png) no-repeat;
+    width: 60px;
+float:right;
+padding:20px 100px 0 0;
+margin-top:20px;
+}
+
+
+.documentViewed{
+    background: url(../images/pageok.png) center no-repeat ;
+    height: 37px;
+    width: 29px;
+}
+.documentMandatory{
+    background: url(../images/pagemust.png) center no-repeat ;
+    height: 37px;
+    width: 29px;
+}
+.documentByDefault{
+    background: url(../images/page.png) center no-repeat ;
+    height: 37px;
+    width: 29px;
+}
+
+.documentInfo{
+}
+
+
+.documents, .legal {
+	float: left;
+}
+
+.documents{
+	width: 540px;
+    position: relative;
+    left: 10px;   
+}
+div.document object {
+    border:  3px solid #BBDC6F;
+}
+
+.optMessage{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	width:950px;
+	color: red;
+	font-size: 0.90em;
+	font-style: bold;
+}
+
+.content{
+	width: 955px;
+	background: url(../images/background.png) top left repeat-y;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.top{
+	height: 15px;
+	background: url(../images/top.png) top left no-repeat;
+}
+.bottom{
+	clear:both;
+	height: 17px;
+	background: url(../images/bottom.png) top left no-repeat;
+}
+
+.legal h2, .legal label.strong{
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+	font-size: 125%;
+	font-weight: normal;
+margin:10px 20px 0 70px;
+color:#007bce;
+}
+
+.legal h3{
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+	font-size: 115%;
+	font-weight: bold;
+	margin:10px 20px 5px 0px;
+	color:#fff;
+	background-color:#73a702;
+	padding-left:10px;
+}
+
+.legal h4{
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+	font-size: 160%;
+	font-weight: bold;
+	color:#73A702;
+	padding-bottom:10px;
+}
+
+.textBlock h2{
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+	font-size: 111%;
+	font-weight: bold;
+margin:0px 20px 10px 0px;
+}
+
+.legal .textBlock{
+	font-size: 0.90em;
+	color: #5E5E5E;
+}
+.reference {
+font-weight: bold;
+}
+
+.textBlock{
+border-radius: 4px 4px 4px 4px;
+background-color:#FFF;
+border: medium none;
+box-shadow: 0 1px 13px rgba(0, 0, 0, 0.3);
+padding: 15px;
+margin: 5px 0 15px 55px;
+width: 670px;
+}
+
+a, a:active, a:focus, a:visited{
+	color: #0565a8;
+}
+
+#docContainer, #docViewerContainer{
+    text-align:center;
+}
+
+#docViewerFrame{
+    text-align:center;
+    border-bottom:1px #5f5f5f solid;
+    border-right:1px #5f5f5f solid;
+}
+
+  /*ccs3 boutons*/
+@font-face {
+    font-family: 'EntypoRegular';
+    src: url('entypo-webfont.eot');
+    src: url('entypo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('entypo-webfont.woff') format('woff'),
+         url('entypo-webfont.ttf') format('truetype'),
+         url('entypo-webfont.svg#EntypoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+  /*j'essaye de monter une image de fond pour IE mais... non*/
+ie9 ie a.cta_btn {
+	position:relative;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    padding: 5px 15px 6px 15px;
+	background-image:url(../images/boutonbleugd.png);
+	width:252px;
+	height:35px;
+	border:none;
+}
+
+.center {
+    text-align: center;
+}
+
+  /*bouton entierement fait en css, pas d'image*/
+.cta_btn a {
+	position:relative;
+    color: #ffffff;
+    border: 1px solid #a5a6a6;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    padding: 3px 15px 4px 15px;
+    background: #898989;
+    background: -webkit-linear-gradient(top, #b3b1b1 0%, #8b8b8b 100%);
+    background: -moz-linear-gradient(top, #b3b1b1 0%, #8b8b8b 100%);
+    background: -o-linear-gradient(top, #b3b1b1 0%, #8b8b8b 100%);
+    background: -ms-linear-gradient(top, #b3b1b1 0%, #8b8b8b 100%);
+    background: linear-gradient(top, #b3b1b1 0%, #8b8b8b 100%);
+    -webkit-border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    border-radius: 30px 30px 30px 30px;
+    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6);
+}
+.cta_btn a:hover {
+    background: #898989;
+    background: -webkit-linear-gradient(top, #8b8b8b 0%, #b3b1b1 100%);
+    background: -moz-linear-gradient(top, #8b8b8b 0%, #b3b1b1 100%);
+    background: -o-linear-gradient(top, #8b8b8b 0%, #b3b1b1 100%);
+    background: -ms-linear-gradient(top, #8b8b8b 0%, #b3b1b1 100%);
+    background: linear-gradient(top, #8b8b8b 0%, #b3b1b1 100%);
+}
+.cta_btn a:active {
+    position: relative;
+    top: 1px;
+}
+.cta_btn span {
+    font-family: 'EntypoRegular';
+    font-size: 55px;
+    line-height: 20px;
+    padding: 4px 0px 4px 1px;
+    width: 37px;
+    height: 30px;
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    border: 1px solid #046988;
+    background: #60b2cd;
+    background: -webkit-linear-gradient(top, #046988 0%, #60b2cd 100%);
+    background: -moz-linear-gradient(top, #046988 0%, #60b2cd 100%);
+    background: -o-linear-gradient(top, #046988 0%, #60b2cd 100%);
+    background: -ms-linear-gradient(top, #046988 0%, #60b2cd 100%);
+    background: linear-gradient(top, #046988 0%, #60b2cd 100%);
+    -webkit-border-radius: 17px 17px 17px 17px;
+    -moz-border-radius: 17px 17px 17px 17px;
+    border-radius: 17px 17px 17px 17px;
+    -webkit-box-shadow: inset 0px 3px 6px rgba(5, 114, 148, 0.8);
+    -moz-box-shadow: inset 0px 3px 6px rgba(5, 114, 148, 0.8);
+    box-shadow: inset 0px 3px 6px rgba(5, 114, 148, 0.8);
+}
+
+.an_btn {
+	position:relative;
+	float:left;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom:9px;
+	background-image:url(../images/petit_btn.png);
+	width:93px;
+	height:35px;
+	border:none;
+	margin:15px 0 0 0px;
+    background-color:#fff;  
+}
+.an_btn:hover{
+	background-image:url(../images/petit_btnHover.png);
+    background-color:#fff;  
+}
+
+#signButton, #validateOtpButton, .va_btn {
+	position:relative;
+	float:right;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom:9px;
+	background-image:url(../images/petit_btnVal.png);
+	width:93px;
+	height:35px;
+	border:none;
+	margin-top:15px;
+    background-color:#fff;  
+}
+#signButton:hover, #validateOtpButton:hover, .va_btn:hover{
+	background-image:url(../images/petit_btnValhover.png);
+    background-color:#fff;  
+}
+
+.va_btn_disabled, #signButton[disabled], #validateOtpButton[disabled], #signButton[disabled]:hover, #validateOtpButton[disabled]:hover{
+    position:relative;
+	float:right;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom:9px;
+    background-image:url(../images/petit_btnVal_disable.png);
+    width:93px;
+	height:35px;
+	border:none;
+	margin-top:15px;
+    background-color:#fff;   
+}
+
+.legal .text{
+	border: solid 1px #006a77;
+}
+
+.center{
+	text-align: center;
+}
+
+.overflow {
+    overflow: visible; 
+}
+
+#loading{
+	text-align: center;
+	padding: 20px;
+	font-size: 1.00em;
+	color: #5E5E5E;
+}
+
+.bottom_button{ 
+   position:relative;  
+	text-align:center;
+	height:60px;
+	padding: 0 70px 0 70px;
+}
+ 
+.bottombutton_view{ 
+}
+
+.bottombutton_sign_pop_up{ 
+}
+
+/*GWT*/
+.gwt-PopupPanel{
+    background: none;
+    border: 0px solid;
+    padding: 0px;
+}
+
+.popupContent{
+}
+
+#otpPopupPanel{
+ height:200px; 
+ width:385px; 
+}
+
+/*POP UP OTP */
+.opacity { 
+    position:float; 
+    top:0; left:0; 
+    height:100%; 
+    width:100%; 
+    background-color:#ffffff;
+    -moz-opacity:0.38; 
+    -khtml-opacity:0.38;
+    opacity:0.38; 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=38)"; 
+    filter:alpha(opacity=38);
+    z-index: 0;
+}
+.popup_otp{
+    z-index: 99999;
+    position: fixed;
+    float: left;
+    margin: 0px 0px 0px 0px;
+}
+
+/*POP UP VIEW */
+#fade{ /*--Masque opaque noir de fond--*/
+            	display: none; /*--masqu√© par d√©faut--*/
+            	background: #000;
+            	position: fixed; left: 0; top: 0;
+            	width: 100%; height: 100%;
+            	-moz-opacity:0.80; 
+                -khtml-opacity:0.80;
+                opacity:0.80; 
+                -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; 
+                filter:alpha(opacity=80);  
+            	z-index: 9999;
+}
+.popup_block{
+            	display: none; /*--masqu√© par d√©faut--*/
+            	background: #fff;
+            	float: left;
+            	font-size: 1.2em;
+            	position: fixed;
+            	top: 50%; left: 50%;
+            	z-index: 99999;
+}
+.btn_close {
+            	float: right;
+            	margin: -55px -55px 0 0;
+                width: 55px;
+                height: 55px;
+                background: url(../images/close_pop.png) no-repeat;
+
+}
+
+img.btn_close {
+            	float: right;
+            	margin: -55px -55px 0 0;
+}
+/*--G√©rer la position fixed pour IE6--*/
+*html #fade {
+            position: absolute;
+}
+*html .popup_block {
+            position: absolute;
+}
+
+.listDocuments{
+	padling:$5px;
+    width; 00%;}
+.op<ighÙ{
+text-decozatkon:lone;
+}
+ul [:display: block;
+list-Ût}le-txpe:†Ógne;
+-webKit-Margin%`egore: ±em;
+-webkit-|argin-agter: 1em9
+-webkit-margif-wtaÚt: 0x;
+-uebkit-mar'in/gn$Z  px;
+-webkit-padting-st·rt: 100x;ä}
+di{
+  " Displ`y: inlinÂ;
+    paddi.g: 5px;
+ %  |ext-decOration: none;
+	list-style-typd> noneª
+	mArgin: 0 0px$00 p8;
+}
+li ! {
+    display: inlin%-blosk;
+    width: 2 0pxª
+ )  text-lecorati/n: nona;
+    font-weieht bolD;
+	color: #>f6e6e;
+	fon|-Geight: gold;
+	font-si{e* 1spx9
+	bmrder:1px sOlid white;
+}
+lm a:hOver"{
+    text=decoration2 nmne;
+	b`ckgbound-colo2: #eeeeee;
+
+li iÌg$r
+padeing-right:12tx3
+}
+ 

@@ -1,0 +1,228 @@
+<html>
+<head>
+    <title>DTP Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <style type="text/css">
+        body
+        {
+            margin: 0px;
+            padding: 0;
+            font-size: 12px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        p
+        {
+            font-family: Verdana,Tahoma,Helvetica,sans-serif;
+            font-size: 12px;
+            padding-left: 70px;
+            font-weight: normal;
+        }
+        
+        h1
+        {
+            font-size: 2.7em;
+            font-weight: normal;
+            margin: 15px 0 15px 30px;
+            font-family: Verdana,Tahoma,Helvetica,sans-serif;
+            letter-spacing: 0.1em;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #fc9605;
+            color: #0346a1;
+        }
+        
+        h2
+        {
+            font-family: Verdana,Tahoma,Helvetica,sans-serif;
+            font-size: 1.2em;
+            padding-left: 30px;
+            font-weight: bold;
+        }
+        
+        h3
+        {
+            font-family: Verdana,Tahoma,Helvetica,sans-serif;
+            font-size: 1.5em;
+            padding-left: 35px;
+            font-weight: normal;
+            margin-top: 20px;
+            color: #fc9605;
+        }
+        
+        .header
+        {
+            background-color: #f0f0f1;
+        }
+        
+        .user-input
+        {
+            font-family: Verdana,Tahoma,Helvetica,sans-serif;
+            font-size: 1.2em;
+            padding-left: 30px;
+            font-weight: bold;
+        }
+        
+        .btn
+        {
+            width: 120px;
+            height: 25px;
+            margin: 8px;
+        }
+        
+        .frame
+        {
+            display: block;
+            margin: 0px auto 8px auto;
+            width: 95%;
+            height: 550px;
+            border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+
+
+        function pad(number) {
+            var r = String(number);
+            if (r.length === 1) {
+                r = '0' + r;
+            }
+            return r;
+        }
+
+        function getRandomInt (min, max) {
+            return Math.floor(Math.random() * 100000);
+        }
+
+        function ready() {
+
+            var now = new Date();
+            document.getElementById("targetDate").value = now.getUTCFullYear() + '-' + pad(now.getUTCMonth() + 1) + '-' + pad(now.getUTCDate());
+            document.getElementById("targetDate").onchange = showExport();
+            showExport();
+        }
+
+        function generateExport() {
+
+            var targetDate = document.getElementById("targetDate").value;
+            var exportGenerationUrl = "%exportGenerationUrl%";
+            exportGenerationUrl = exportGenerationUrl.replace("#date#", targetDate);
+            exportGenerationUrl += (exportGenerationUrl.indexOf("?") == -1 ? "?" : "&") + "dummy=" + Math.floor(Math.random() * 10000000);
+                
+
+
+            if (!targetDate) {
+                alert("No target date specified !");
+                return;
+            }
+
+            if (!verifyDate(targetDate)) {
+                alert("Invalid target date ! (format: yyyy-mm-dd)");
+                return;
+            }
+
+            setFrameContent("<center><div><b>Loading...</b></div></center>");
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+
+                    if (xmlhttp.status == 200) {
+                        showExport();
+                    }
+                    else {
+                        setFrameContent("<center><div style='color:red;'><b>An error occured durring export generation.</b></div></center>");
+                    }
+                }
+            }
+
+            xmlhttp.open("GET", exportGenerationUrl, true);
+            xmlhttp.send();
+
+        }
+
+        function showExport() {
+
+            var targetDate = document.getElementById("targetDate").value;
+            var exportDownloadUrl = "%exportDownloadUrl%";
+            exportDownloadUrl = exportDownloadUrl.replace("#date#", targetDate);
+            exportDownloadUrl += (exportDownloadUrl.indexOf("?") == -1 ? "?" : "&") + "dummy=" + Math.floor(Math.random() * 10000000);
+
+            if (!targetDate) {
+                return;
+            }
+
+            if (!verifyDate(targetDate)) {
+                return;
+            }
+
+            setFrameContent("<center><div><b>Loading...</b></div></center>");
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4) {
+
+                    if (xmlhttp.status == 200) {
+                        document.getElementById("content").src = exportDownloadUrl;
+                    }
+                    else {
+                        generateExport();
+                    }
+                }
+            }
+
+            xmlhttp.open("GET", exportDownloadUrl, true);
+            xmlhttp.send();
+        }
+
+        function setFrameContent(contentHtml) {
+            var innerFrame = document.getElementById("content");
+            var innerDoc = (innerFrame.contentDocument) ? innerFrame.contentDocument : innerFrame.contentWindow.document;
+            innerDoc.body.innerHTML = contentHtml;
+        }
+
+        function onDateKeyPress(e) {
+            if (e.keyCode == 13) {
+                showExport();
+            }
+        }
+
+        function verifyDate(d) {
+            var reg = new RegExp("20[0-9]{2}-(0[1-9]|[12][0-9]|3[01])-(0[1-9]|[12][0-9]|3[01])$", "g");
+            return reg.test(d);
+        }
+
+    </script>
+</head>
+<body onload="ready()">
+    <div class="header">
+        <h1>
+            Dashboard home</h1>
+        <h2>
+            Tenant: %tenantId%</h2>
+        <h2>
+            Application: %appName%</h2>
+        <div class="user-input">
+            <span class="label">Date: </span>
+            <input id="targetDate" type="date" value="" onkeypress="onDateKeyPress(event);" oninput="showExport()" />
+        </div>
+        <div class="user-input">
+            <button class="btn" type="button" onclick="generateExport()">
+                Refresh</button>
+        </div>
+    </div>
+    <br />
+    <iframe id="content" class="frame"></iframe>
+</body>
+</html>

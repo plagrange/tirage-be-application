@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="reunion" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!-- <non-jta-data-source>java:/comp/env/jdbc/REUNION</non-jta-data-source> -->
+
+        <class>com.reunion.tirage.entity.Tirage</class>
+        <class>com.reunion.tirage.entity.User</class>
+        <class>com.reunion.tirage.entity.TirageParameter</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+          <property name="eclipselink.weaving" value="static"/>	
+	      <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+	      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:E:\Projets\REUNION\data/hsqldb/tirage"/> 
+	      <property name="javax.persistence.jdbc.user" value="sa"/>
+	      <property name="javax.persistence.jdbc.password" value=""/>
+	      <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+	      <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>

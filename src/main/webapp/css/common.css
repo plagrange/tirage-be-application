@@ -1,0 +1,208 @@
+body {
+	background:url(../images/trame_fond.jpg) repeat-x;
+	font-family: Verdana, Helvetica, Geneva, "Bitstream Vera Sans", sans-serif;
+	font-size:12px;
+	color:#333;
+	text-align:center;
+	margin:auto;
+	width:auto;
+}
+
+a {
+	text-decoration: underline;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #305e99;
+}
+
+input.button {
+    margin: 20px;
+    font: bold 1em Arial, Sans-serif;
+    border: 1px solid #336699;
+    background: #e1ebfc;
+    padding: 2px 3px;
+    color: #336699;
+}
+
+input
+{
+	border: 1px solid #90b8ee;
+	background: #fff;
+	margin:2px 7px 2px 7px;
+	font-size:20px;
+}
+
+h2{
+    color: #EC8D05;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 0 5px;
+    text-align: center;
+}
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+blockquote, q { quotes: "" ""; }
+/* Remove annoying border on linked images. */
+a img { border: none; }
+/* Remember to define your own focus styles! */
+:focus { outline: 0; }
+/* End of reset */
+p{
+	padding: 1em 0 0 1em;
+}
+body{
+	text-align: center;
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+    font-size: 80%;
+    background: url(../images/body_bg.jpg) top left repeat-x ;
+}
+
+#mainContainer{
+	min-height: 100%;
+	width: 1050px;
+	overflow: hidden; 
+	margin-left: auto;
+	margin-right: auto;
+}
+#header{
+	height: 95px;
+    margin-top: 2px;
+}
+
+.logo{
+	/* background: url(../images/logo.png) center no-repeat; */
+	height: 70px;
+	width: 70px;
+	float:left;
+	margin: 10px 0 0 100px;
+}
+.titre{
+	font-family: Arial,Helvetica,"Liberation Sans",FreeSans,sans-serif;
+	font-size: 300%;
+	font-weight: normal;
+    padding:15px 0px 0 0px;
+    color:#929191;
+}
+
+#footer{
+	position : relative;
+    bottom: 0;
+	background: url(../images/logo.png) no-repeat;
+	text-align:center;
+	float:center;
+	padding:20px 100px 0 0;
+	margin-top:20px;
+}
+
+#tirageButton{
+	position:relative;	
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom:9px;
+	background-image:url(../images/petit_btnVal.png);
+	width:93px;
+	height:35px;
+	border:none;
+	margin-top:15px;
+    background-color:#fff;  
+}
+#tirageButton:hover{
+	background-image:url(../images/petit_btnValhover.png);
+    background-color:#fff;  
+}
+
+.center{
+	text-align: center;
+}
+
+.bottom_button{ 
+   position:relative;  
+	text-align:center;
+	height:60px;
+	padding: 0 70px 0 70px;
+}
+
+li a {
+    display: inline-block;
+    width: 200px;
+    text-decoration: none;
+    font-weight: bold;
+	color: #6f6e6e;
+	font-weight: bold;
+	font-size: 13px;
+	border:1px solid white;
+}
+li a:hover {
+    text-decoration: none;
+	background-color: #eeeeee;
+}
+
+ #tableResultId{
+	background-color: #eeeeee;
+	font-weight: bold;
+	text-align:center;
+	color:blue;
+	border:1px solid black;
+}
+
+
+#tabUserHeader{
+	background-color :  #eeeeee;
+}
+
+#tabControl{
+border: none !important;
+font-weight: bold;
+}
+
+#listForm{
+	margin:20px;
+}
+
+#sendButton{
+	position:relative;	
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom:9px;
+	background-image:url(../images/petit_btnVal.png);
+	width:93px;
+	height:35px;
+	border:none;
+	margin-top:15px;
+    background-color:#fff;  
+}
+
+#add_line{
+	background-color : #05CBDA;
+	color: white;
+
+	height: 30px;
+	width: 140px;
+}
+
+#remove_line{
+	background-color : #F78181;
+	color: white;
+	height: 30px;
+	width: 140px;
+}
+
+table ,td, th{
+	border:1px solid black;
+}
+
+.tableHead{
+background-color : #F78181;
+color: white;
+}
